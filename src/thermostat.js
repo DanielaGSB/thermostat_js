@@ -61,7 +61,7 @@ function Thermostat() {
   };
 
   Thermostat.prototype.energyUsage = function() {
-    if (this.temperature < this.LOW_ENERGY_LEVEL_UPPERLIMIT) {
+    if (this.temperature <= this.LOW_ENERGY_LEVEL_UPPERLIMIT) {
       return 'low';
     } else if (this.temperature > this.LOW_ENERGY_LEVEL_UPPERLIMIT && this.temperature <= this.HIGH_ENERGY_LEVEL_LOWERLIMIT) {
       return 'medium';
