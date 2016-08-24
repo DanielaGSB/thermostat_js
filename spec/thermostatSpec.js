@@ -19,6 +19,12 @@ describe('Thermostat', function() {
     expect(thermostat.getTemperature()).toEqual(10);
   });
 
+  it('can be reset to the default temperature', function(){
+    thermostat.increaseTemperature();
+    thermostat.resetTemperature();
+    expect(thermostat.getTemperature()).toEqual(20);
+  });
+
   describe('press up temperature button', function() {
     it('increases the temperature by 1 degree', function() {
       thermostat.increaseTemperature();
@@ -65,6 +71,7 @@ describe('Thermostat', function() {
       expect(thermostat.increaseTemperature()).toEqual('Maximum temperature reached');
     });
   });
+
   describe('when power saving mode is off', function(){
     it('has a maximum temperature of 32 degrees', function(){
       thermostat.switchPowerSavingModeOff();
