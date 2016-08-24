@@ -12,12 +12,15 @@ function Thermostat() {
     this.temperature +=1;
   };
 
-  Thermostat.prototype.decreaseTemperature = function() {
-    if (this.temperature>this.MINIMUM_TEMPERATURE) {
-      this.temperature -=1;
-    } else {
-      return 'Minimum temperature reached'
-    }
+  Thermostat.prototype.isMinimumTemperature = function() {
+    return this.temperature === this.MINIMUM_TEMPERATURE;
   };
 
+  Thermostat.prototype.decreaseTemperature = function() {
+    if (this.isMinimumTemperature()) {
+      return 'Minimum temperature reached';
+    } else {
+      this.temperature -=1;
+    }
+  };
 }
