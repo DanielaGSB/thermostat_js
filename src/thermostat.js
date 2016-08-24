@@ -3,9 +3,14 @@
 function Thermostat() {
   this.temperature = 20;
   this.MINIMUM_TEMPERATURE = 10;
+  this.PowerSavingMode = true;
 
   Thermostat.prototype.getTemperature = function(temperature){
     return this.temperature;
+  };
+
+  Thermostat.prototype.isPowerSavingModeOn = function(){
+    return this.PowerSavingMode;
   };
 
   Thermostat.prototype.increaseTemperature = function() {

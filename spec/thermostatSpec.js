@@ -25,6 +25,7 @@ describe('Thermostat', function() {
       expect(thermostat.getTemperature()).toEqual(21);
     });
   });
+
   describe('press down temperature button', function() {
     it('decreases the temperature by 1 degree', function() {
       thermostat.decreaseTemperature();
@@ -37,6 +38,12 @@ describe('Thermostat', function() {
       }
         thermostat.decreaseTemperature();
       expect(thermostat.decreaseTemperature()).toEqual('Minimum temperature reached');
+    });
+  });
+
+  describe('power saving mode', function(){
+    it('is on by default', function(){
+      expect(thermostat.isPowerSavingModeOn()).toBe(true);
     });
   });
 });
