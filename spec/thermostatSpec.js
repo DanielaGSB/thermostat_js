@@ -12,6 +12,13 @@ describe('Thermostat', function() {
     expect(thermostat.getTemperature()).toEqual(20);
   });
 
+  it('has a minimum of 10 degrees', function(){
+    for (var i = 0; i <11; i++) {
+      thermostat.decreaseTemperature();
+    }
+    expect(thermostat.getTemperature()).toEqual(10);
+  });
+
   describe('press up temperature button', function() {
     it('increases the temperature by 1 degree', function() {
       thermostat.increaseTemperature();
@@ -19,9 +26,17 @@ describe('Thermostat', function() {
     });
   });
   describe('press down temperature button', function() {
-    it('increases the temperature by 1 degree', function() {
+    it('decreases the temperature by 1 degree', function() {
       thermostat.decreaseTemperature();
       expect(thermostat.getTemperature()).toEqual(19);
+    });
+
+    it('can not be decreased more than its minimum temperature', function(){
+      for (var i = 0; i <11; i++) {
+        thermostat.decreaseTemperature();
+      }
+        thermostat.decreaseTemperature();
+      expect(thermostat.decreaseTemperature()).toEqual('Minimum temperature reached');
     });
   });
 });

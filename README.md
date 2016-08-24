@@ -2,7 +2,7 @@ Specifications
 
 Thermostat starts at 20 degrees
 You can increase the temperature with the up button
-You can decrease the temperature with the down button
+You can decrease the temperature with the down button 
 The minimum temperature is 10 degrees
 If power saving mode is on, the maximum temperature is 25 degrees
 If power saving mode is off, the maximum temperature is 32 degrees
