@@ -28,4 +28,16 @@ function Thermostat() {
       this.temperature -=1;
     }
   };
+
+  Thermostat.prototype.switchPowerSavingModeOff = function() {
+    if (this.isPowerSavingModeOn()) {
+      this.PowerSavingMode = false;
+    }
+  };
+
+  Thermostat.prototype.switchPowerSavingModeOn = function() {
+    if (this.isPowerSavingModeOn() === false) {
+      this.PowerSavingMode = true;
+    }
+  };
 }
