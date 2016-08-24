@@ -82,4 +82,21 @@ describe('Thermostat', function() {
       expect(thermostat.increaseTemperature()).toEqual('Maximum temperature reached');
     });
   });
+
+  describe('has different levels of energy usage', function(){
+    it('has a low energy usage', function(){
+      for (var i = 0; i < 3; i++)
+      thermostat.decreaseTemperature();
+      expect(thermostat.energyUsage()).toEqual('low')
+    });
+    it('has a medium energy usage', function(){
+      expect(thermostat.energyUsage()).toEqual('medium')
+    });
+    it('has a high energy usage', function(){
+      thermostat.switchPowerSavingModeOff();
+      for (var i = 0; i < 6; i++)
+      thermostat.increaseTemperature();
+      expect(thermostat.energyUsage()).toEqual('high')
+    });
+  })
 });
