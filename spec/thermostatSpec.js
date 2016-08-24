@@ -9,13 +9,19 @@ describe('Thermostat', function() {
   });
 
   it('starts at 20 degrees', function(){
-    expect(thermostat.giveTemperature()).toEqual(20);
+    expect(thermostat.getTemperature()).toEqual(20);
   });
 
-  // describe('press up temperature button', function() {
-  //   it('should increase the temperature by 1 degree', function() {
-  //     thermostat.increaseTemperature();
-  //     expect(thermostat.giveTemperature()).toEqual(21);
-  //   });
-  // });
+  describe('press up temperature button', function() {
+    it('increases the temperature by 1 degree', function() {
+      thermostat.increaseTemperature();
+      expect(thermostat.getTemperature()).toEqual(21);
+    });
+  });
+  describe('press down temperature button', function() {
+    it('increases the temperature by 1 degree', function() {
+      thermostat.decreaseTemperature();
+      expect(thermostat.getTemperature()).toEqual(19);
+    });
+  });
 });
