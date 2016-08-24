@@ -33,7 +33,7 @@ describe('Thermostat', function() {
     });
 
     it('can not be decreased more than its minimum temperature', function(){
-      for (var i = 0; i <11; i++) {
+      for (var i = 0; i < 11; i++) {
         thermostat.decreaseTemperature();
       }
         thermostat.decreaseTemperature();
@@ -53,6 +53,26 @@ describe('Thermostat', function() {
       thermostat.switchPowerSavingModeOff();
       thermostat.switchPowerSavingModeOn();
       expect(thermostat.isPowerSavingModeOn()).toBe(true);
+    });
+  });
+
+  describe('when power saving mode is on', function(){
+    it('has a maximum temperature of 25 degrees', function(){
+      for (var i = 0; i < 6; i++) {
+        thermostat.increaseTemperature();
+      }
+      expect(thermostat.getTemperature()).toEqual(25);
+      expect(thermostat.increaseTemperature()).toEqual('Maximum temperature reached');
+    });
+  });
+  describe('when power saving mode is off', function(){
+    it('has a maximum temperature of 32 degrees', function(){
+      thermostat.switchPowerSavingModeOff();
+      for (var i = 0; i < 13; i++) {
+        thermostat.increaseTemperature();
+      }
+      expect(thermostat.getTemperature()).toEqual(32);
+      expect(thermostat.increaseTemperature()).toEqual('Maximum temperature reached');
     });
   });
 });
