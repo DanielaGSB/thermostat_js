@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <title>Thermostat</title>
-
   <link rel="stylesheet" href="css/style.css">
-
+  <div class="header">
+    THERMOSTAT
+  </div>
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="src/thermostat.js"></script>
   <script src="src/interface.js"></script>
-</head>
+  <div class="container">
 
-<body>
-  <h2><span id="temperature"></span>C</h2>
-  <section>
-    <h1>Current temperature: <span id="current-temperature"></span></h1>
-    <form id="select-city">
-      <input id="current-city" type="text" placeholder="Enter a city">
-      <input type="submit">
-    </form>
-  </section>
-  <p>
-    <button id="temperature-increase">+</button>
-    <button id="temperature-decrease">-</button>
-    <button id="temperature-reset">reset</button>
-    power saving mode is <span id="power-saving-status">on</span>
-    <button id="powersavingmode-on">PSM on</button>
-    <button id="powersavingmode-off">PSM off</button>
-  </p>
-</body>
+  <body>
+    <div class="leftSection">
+      <h2>
+        <span id="temperature"></span>&#8451
+        <div class="temp-btn-group">
+          <button id="temperature-increase">+</button>
+          <button id="temperature-decrease">-</button><br>
+          <button id="temperature-reset">RESET</button>
+        </div>
+
+        Power saving mode is <span id="power-saving-status">ON</span>
+        <div class="psm-btn-group">
+          <button id="powersavingmode-on">ON</button>
+          <button id="powersavingmode-off">OFF</button>
+        </div>
+      </h2>
+    </div>
+
+    <div class="rightSection">
+      <h2>
+        <span id="current-temperature"></span>&#8451
+      </h2>
+      <form id="select-city">
+        <input id="current-city" type="text" placeholder="Enter a city">
+        <input type="submit">
+      </form>
+    </div>
+  </body>
+</div>
 </html>

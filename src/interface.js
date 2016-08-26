@@ -26,12 +26,12 @@ $(document).ready(function() {
 
   $('#powersavingmode-on').on('click', function() {
     thermostat.switchPowerSavingModeOn();
-    $('#power-saving-status').text('on');
+    $('#power-saving-status').text('ON');
   });
 
   $('#powersavingmode-off').on('click', function() {
     thermostat.switchPowerSavingModeOff();
-    $('#power-saving-status').text('off');
+    $('#power-saving-status').text('OFF');
   });
 
   $('#select-city').submit(function(event) {
@@ -45,7 +45,7 @@ $(document).ready(function() {
     var token = '&appid=45fd069205600da26b1ef07304444c8d';
     var units = '&units=metric';
     $.get(url + token + units, function(data) {
-      $('#current-temperature').text(data.main.temp);
+      $('#current-temperature').text(data.main.temp).round();
     });
   }
   });

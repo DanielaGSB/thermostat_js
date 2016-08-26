@@ -1,11 +1,60 @@
 .low {
   color: green;
+  font-size:6em;
 }
 
 .medium {
   color: black;
+  font-size:6em;
 }
 
 .high {
   color: red;
+  font-size:6em;
+}
+
+.container {
+  display: table;
+  width:100%;
+  height: 100%;
+  position:relative;
+  text-align: center;
+  vertical-align: bottom;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  border-radius: 12px;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+button:hover {
+  background-color: red;
+  color: white;
+}
+.leftSection {
+  display: table-cell;
+  background-color: #9db4ab;
+  width: 50%;
+}
+
+.rightSection {
+  display: table-cell;
+  background-color: #ffd700;
+  width: 50%;
+}
+#current-temperature {
+  font-size:6em;
+}
+
+.header {
+  text-align: center;
+  padding:0.5em;
+  color:white;
+  background-color: #696969;
+  font-size: 2em;
+  font-family: 'Hoefler Text', Georgia, 'Times New Roman', serif;
+  letter-spacing: .2em;
 }
