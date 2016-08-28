@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
-  var color = 'orange';
+  var color = 'black';
 
   updateTemperature();
 
@@ -34,10 +34,24 @@ $(document).ready(function() {
     $('#power-saving-status').text('OFF');
   });
 
+  function defaultWeather() {
+    var url = 'http://api.openweathermap.org/data/2.5/weather?q=london';
+    var token = '&appid=45fd069205600da26b1ef07304444c8d';
+    var units = '&units=metric';
+    $.get(url + token + units, function(data) {
+      var temp = (data.main.temp);
+      $('#current-temperature').text('I do not know that city, but in London it is ' + data.main.temp.toFixed());
+    });
+  }
+
   $('#select-city').submit(function(event) {
     event.preventDefault();
     var city = $('#current-city').val();
-    displayWeather(city);
+    if (city === null || city === '') {
+      defaultWeather();
+    } else {
+      displayWeather(city);
+    }
   });
 
   function displayWeather(city) {
@@ -45,7 +59,13 @@ $(document).ready(function() {
     var token = '&appid=45fd069205600da26b1ef07304444c8d';
     var units = '&units=metric';
     $.get(url + token + units, function(data) {
-      $('#current-temperature').text(data.main.temp).round();
+      $('#current-temperature').text(data.main.temp.toFixed());
+    });
+    $.get(url + token + units, function(data) {
+      $('#max-temperature').text(data.main.temp_max.toFixed());
+    });
+    $.get(url + token + units, function(data) {
+      $('#min-temperature').text(data.main.temp_min.toFixed());
     });
   }
-  });
+});
